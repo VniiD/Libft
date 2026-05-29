@@ -6,7 +6,7 @@
 #    By: vde-alme <vde-alme@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/29 13:27:22 by vde-alme          #+#    #+#              #
-#    Updated: 2026/05/29 17:32:46 by vde-alme         ###   ########.fr        #
+#    Updated: 2026/05/29 19:44:44 by vde-alme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS	= -Wall -Wextra -Werror
 AR		= ar rcs
 HEADER 	= libft.h
 
-SRCS	= ft_bzero.c
+SRCS	= ft_bzero.c ft_memset.c
 
 OBJS	= $(SRCS:.c=.o)
 
