@@ -1,0 +1,77 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vde-alme <vde-alme@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/29 14:11:06 by vde-alme          #+#    #+#             */
+/*   Updated: 2026/05/29 17:47:28 by vde-alme         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Libft.h"
+
+void    ft_bzero(void *s, size_t n)
+{
+	unsigned char *ptr;
+
+	ptr = (unsigned char *)s;
+	while (n > 0)
+		*ptr = '\0';
+		ptr++;
+		n--;
+}
+
+char    *ft_putstr(char *s)
+{
+	if (!s)
+		return (NULL);
+	while (*s)
+		write(1, s++, 1);
+}
+
+int	main(int argc, char **argv)
+{
+	char	*buffer;
+	
+	if (argc != 2)
+	{
+		ft_putstr("Uso: ./ft_bzero \"caractere\"\n");
+		return (1);
+	}
+	buffer  = (char *)malloc(sizeof(char) * 4);
+	if (!buffer)
+		return (1);
+	*buffer = *argv[1];
+	*(buffer + 1) = *argv[1]; // primeira posição
+	*(buffer + 2) = *argv[1]; // segunda posição
+	*(buffer + 3) = '\0';   // terceira posição
+	ft_putstr("Antes do bzero: ");
+	ft_putstr(buffer);
+	ft_putstr("\n");
+	ft_bzero(buffer, 2);
+	if (*buffer == 0 && *(buffer + 1) == 0)
+		ft_putstr("Sucesso: Os 2 primeiros bytes foram zerados na heap!\n");
+	else
+		ft_putstr("Erro: Falha ao zerar a memoria.\n");	
+	free(buffer);
+	ft_putstr(buffer);
+	return (0);
+}
+
+void	ft_str(char *str)
+{
+	int	i;
+	
+	i = 0;
+	while (str[i])
+		write(1, &str[i], 1);
+		i++;
+}
+
+void	ft_str(char *s)
+{
+	while (*s)
+		write(1, s++, 1);
+}
