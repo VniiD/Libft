@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vde-alme <vde-alme@student.42.fr>          +#+  +:+       +#+        */
+/*   By: v <v@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 14:11:06 by vde-alme          #+#    #+#             */
-/*   Updated: 2026/05/29 19:52:08 by vde-alme         ###   ########.fr       */
+/*   Updated: 2026/05/30 23:04:52 by v                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void    ft_bzero(void *s, size_t n)
 {
 	unsigned char *ptr;
 
+	//if (!s || n == 0)
+    //    return ;
 	ptr = (unsigned char *)s;
 	while (n--)
 		*ptr++ = '\0';
