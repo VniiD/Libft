@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: v <v@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/31 22:57:23 by v                 #+#    #+#             */
-/*   Updated: 2026/06/01 12:17:54 by v                ###   ########.fr       */
+/*   Created: 2026/06/01 12:18:28 by v                 #+#    #+#             */
+/*   Updated: 2026/06/01 12:37:26 by v                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	unsigned char	target;
+	char			*last_match;
 
 	if (!s)
 		return (NULL);
 	target = (unsigned char)c;
+	last_match = NULL;
 	while (*s)
 	{
 		if ((unsigned char)*s == target)
-			return ((char *)s);
+			last_match = (char *)s;
 		s++;
 	}
 	if (target == '\0')
 		return ((char *)s);
-	return (NULL);
+	return (last_match);
 }
 
-/*void	ft_putstr(char *str)
+/*void    ft_putstr(char *str)
 {
 	if (!str)
 		return ;
@@ -46,8 +48,8 @@ int	main(int argc, char **argv)
 	char	*res;
 
 	if (argc < 3 || !argv[1] || !argv[2])
-		return (ft_putstr("Ex: ./ft_strchr 'String' 'c'\n"), 1);
-	res = ft_strchr(argv[1], argv[2][0]);
+		return (ft_putstr("Ex: ./ft_strrchr 'String' 'c'\n"), 1);
+	res = ft_strrchr(argv[1], argv[2][0]);
 	ft_putstr("Resultado da busca: ");
 	if (res)
 	{
@@ -58,5 +60,4 @@ int	main(int argc, char **argv)
 	if (!res)
 		ft_putstr("Caractere nao encontrado.\n");
 	return (0);
-}
-*/
+}*/
