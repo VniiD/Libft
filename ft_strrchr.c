@@ -6,7 +6,7 @@
 /*   By: v <v@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:18:28 by v                 #+#    #+#             */
-/*   Updated: 2026/06/01 12:37:26 by v                ###   ########.fr       */
+/*   Updated: 2026/06/02 23:34:11 by v                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,33 +31,3 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)s);
 	return (last_match);
 }
-
-/*void    ft_putstr(char *str)
-{
-	if (!str)
-		return ;
-	while (*str)
-	{
-		write (1, str, 1);
-		str++;
-	}
-}
-
-int	main(int argc, char **argv)
-{
-	char	*res;
-
-	if (argc < 3 || !argv[1] || !argv[2])
-		return (ft_putstr("Ex: ./ft_strrchr 'String' 'c'\n"), 1);
-	res = ft_strrchr(argv[1], argv[2][0]);
-	ft_putstr("Resultado da busca: ");
-	if (res)
-	{
-		ft_putstr("Encontrado! Resto da string: \"");
-		ft_putstr(res);
-		ft_putstr("\"\n");
-	}
-	if (!res)
-		ft_putstr("Caractere nao encontrado.\n");
-	return (0);
-}*/

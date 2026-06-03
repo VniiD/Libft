@@ -1,20 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   main_toupper.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: v <v@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/01 18:42:33 by v                 #+#    #+#             */
-/*   Updated: 2026/06/02 22:49:23 by v                ###   ########.fr       */
+/*   Created: 2026/06/02 23:41:00 by v                 #+#    #+#             */
+/*   Updated: 2026/06/02 23:41:48 by v                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_toupper(int c);
+
+void	ft_putstr(char *str)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
+	if (!str)
+		return ;
+	while (*str)
+	{
+		write(1, str, 1);
+		str++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	int	result;
+	char	c;
+
+	if (argc < 2 || !argv[1])
+		return (ft_putstr("Ex: ./ft_toupper [caractere]\n"), 1);
+	result = ft_toupper((int)argv[1][0]);
+	c = (char)result;
+	ft_putstr("Resultado: \"");
+	write(1, &c, 1);
+	ft_putstr("\"\n");
 	return (0);
 }

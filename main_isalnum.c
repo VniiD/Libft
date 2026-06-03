@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   main_isalnum.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: v <v@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/31 16:13:58 by v                 #+#    #+#             */
-/*   Updated: 2026/06/02 23:06:29 by v                ###   ########.fr       */
+/*   Created: 2026/06/02 22:35:30 by v                 #+#    #+#             */
+/*   Updated: 2026/06/02 22:35:38 by v                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
-{
-	const unsigned char	*p1;
-	const unsigned char	*p2;
-	size_t				i;
+int	ft_isalnum(int c);
 
-	p1 = (const unsigned char *)s1;
-	p2 = (const unsigned char *)s2;
-	i = 0;
-	while (i < n)
+void	ft_putstr(char *str)
+{
+	if (!str)
+		return ;
+	while (*str)
 	{
-		if (p1[i] != p2[i])
-			return (p1[i] - p2[i]);
-		i++;
+		write(1, str, 1);
+		str++;
 	}
+}
+
+int	main(int argc, char **argv)
+{
+	int	result;
+
+	if (argc < 2 || !argv[1])
+		return (ft_putstr("Ex: ./ft_isalnum [caractere]\n"), 1);
+	result = ft_isalnum((int)argv[1][0]);
+	if (result == 1)
+		ft_putstr("Resultado: É um caractere alfanumerico.\n");
+	if (result == 0)
+		ft_putstr("Resultado: NÃO e um caractere alfanumerico.\n");
 	return (0);
 }

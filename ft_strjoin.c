@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: v <v@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/01 21:49:57 by v                 #+#    #+#             */
-/*   Updated: 2026/06/02 23:18:44 by v                ###   ########.fr       */
+/*   Created: 2026/06/02 15:09:06 by v                 #+#    #+#             */
+/*   Updated: 2026/06/02 23:20:13 by v                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,20 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*ptr;
-	size_t	len;
+	char	*res;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	len = ft_strlen(s1);
-	ptr = (char *)malloc((len + 1) * sizeof(char));
-	if (!ptr)
+	if (!s1 || !s2)
 		return (NULL);
-	ft_memcpy(ptr, s1, len + 1);
-	return (ptr);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	res = (char *)malloc((s1_len + s2_len + 1) * sizeof(char));
+	if (!res)
+		return (NULL);
+	ft_memcpy(res, s1, s1_len);
+	ft_memcpy(res + s1_len, s2, s2_len + 1);
+	return (res);
 }
