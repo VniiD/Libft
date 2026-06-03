@@ -1,78 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bzero.c                                       :+:      :+:    :+:   */
+/*   main_putchar_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-alme <vde-alme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/02 22:24:00 by v                 #+#    #+#             */
-/*   Updated: 2026/06/03 15:21:20 by vde-alme         ###   ########.fr       */
+/*   Created: 2026/06/03 16:45:10 by vde-alme          #+#    #+#             */
+/*   Updated: 2026/06/03 16:54:29 by vde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void	fd_putchar_fd(char c, int fd);
 
-void    ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
 	int	i;
-	
+
 	if (!str)
 		return ;
 	i = 0;
-	while (str[i])
+	while (*str)
 	{
-		write(0, &str[i], 1);
-		i++;
+		write(1, str, 1);
+		str++;
 	}
 }
 
-int	ft_atoi(char *str)
+int	ft_aux_atoi(char *str)
 {
 	int	res;
-	int	sgn;
 
 	res = 0;
-	sgn = 1;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
-	if (*str == '-')
-		sgn = -1;
-	if (*str == '-' || *str == '+')
+	if (*str == '+')
 		str++;
 	while (*str >= '0' && *str <= '9')
 	{
 		res = res * 10 + (*str - '0');
 		str++;
 	}
-	return (res * sgn);
+	return (res);
 }
 
 int	main(int argc, char **argv)
 {
-	char	buffer[20];
-	int		bytes_para_zerar;
-	int		i;
+	char	caractere;
+	int		canal_fd;
 
-	if (argc < 2 || !argv[1])
+	if (argc < 3 || !argv[1] || !argv[2])
 	{
-		ft_putstr("Exemplo de uso: ./exec_bzero [quantidade_de_bytes]\n");
+		ft_putstr("Uso: ./exec_putchar [caractere] [file_descriptor]\n");
+		ft_putstr("Canais: 1 (Stdout) ou 2 (Stderr)\n");
 		return (1);
 	}
-	i = 0;
-	while (i < 19)
+	caractere = argv[1][0];
+	canal_fd = ft_aux_atoi(argv[2]);
+	if (canal_fd < 1 || canal_fd > 2)
 	{
-		buffer[i] = 'A';
-		i++;
-	}
-	buffer[i] = '\0';
-	bytes_para_zerar = ft_atoi(argv[1]);
-	if (bytes_para_zerar < 0 || bytes_para_zerar > 19)
-	{
-		ft_putstr("Erro: Quantidade inválida para o tamanho do buffer.\n");
+		ft_putstr("Erro: Use apenas 1 (Stdout) ou 2 (Stderr).\n");
 		return (1);
 	}
-	ft_bzero(buffer, bytes_para_zerar);
-	ft_putstr("Operação realizada sem vazamento ou crash na RAM.\n");
+	ft_putchar_fd(caractere, canal_fd);
+	ft_putchar_fd('\n', canal_fd);
 	return (0);
 }

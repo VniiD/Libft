@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: v <v@student.42.fr>                        +#+  +:+       +#+        */
+/*   By: vde-alme <vde-alme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 21:17:15 by v                 #+#    #+#             */
-/*   Updated: 2026/06/02 22:33:34 by v                ###   ########.fr       */
+/*   Updated: 2026/06/03 15:21:08 by vde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	ft_bzero(void *s, size_t n)
-{
-		unsigned char	*ptr;
-		size_t			i;
-
-		ptr = (unsigned char *)s;
-		i = 0;
-		while (i< n)
-		{
-			ptr[i] = '\0';
-			i++;
-		}
-}
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
