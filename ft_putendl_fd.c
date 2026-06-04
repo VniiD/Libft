@@ -6,9 +6,16 @@
 /*   By: vde-alme <vde-alme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 17:36:08 by vde-alme          #+#    #+#             */
-/*   Updated: 2026/06/03 17:36:21 by vde-alme         ###   ########.fr       */
+/*   Updated: 2026/06/04 17:22:15 by vde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void	ft_putendl_fd(char *s, int fd)
+{
+	if (!s)
+		return ;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}

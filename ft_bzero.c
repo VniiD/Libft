@@ -6,15 +6,15 @@
 /*   By: vde-alme <vde-alme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 14:11:06 by vde-alme          #+#    #+#             */
-/*   Updated: 2026/06/03 14:43:11 by vde-alme         ###   ########.fr       */
+/*   Updated: 2026/06/04 16:41:13 by vde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char *ptr;
+	unsigned char	*ptr;
 
 	ptr = (unsigned char *)s;
 	while (n--)
