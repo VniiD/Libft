@@ -1,4 +1,4 @@
 libft-god
 output
-.vscode
-.gitignore
+".vscode"
+".gitignore"
