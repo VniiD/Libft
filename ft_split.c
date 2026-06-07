@@ -84,3 +84,4 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (ft_allocate_words(matrix, s, c));
 }
+
