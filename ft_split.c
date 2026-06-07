@@ -33,10 +33,13 @@ static size_t	ft_count_words(char const *s, char c)
 	return (count);
 }
 
-static char	**ft_free_matrix(char **matrix, ssize_t i)
+static char	**ft_free_matrix(char **matrix, size_t i)
 {
-	while (i--)
+	while (i > 0)
+{
 		free(matrix[i]);
+  i++;
+}
 	free(matrix);
 	return (NULL);
 }
