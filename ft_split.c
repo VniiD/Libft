@@ -37,7 +37,7 @@ static char	**ft_free_matrix(char **matrix, size_t i)
 {
 	while (i > 0)
 {
-    i++;
+    i--;
 		free(matrix[i]);
 }
 	free(matrix);
