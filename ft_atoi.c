@@ -6,33 +6,33 @@
 /*   By: vde-alme <vde-alme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 16:43:38 by vde-alme          #+#    #+#             */
-/*   Updated: 2026/06/04 16:44:20 by vde-alme         ###   ########.fr       */
+/*   Updated: 2026/06/07 17:56:01 by vde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *nbr)
 {
 	int	res;
-	int	sinal;
+	int	sgn;
 
 	res = 0;
-	sinal = 1;
-	if (!nptr)
+	sgn = 1;
+	if (!nbr)
 		return (0);
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
+	while (*nbr == ' ' || (*nbr >= 9 && *nbr <= 13))
+		nbr++;
+	if (*nbr == '-' || *nbr == '+')
 	{
-		if (*nptr == '-')
-			sinal = -1;
-		nptr++;
+		if (*nbr == '-')
+			sgn = -1;
+		nbr++;
 	}
-	while (*nptr >= '0' && *nptr <= '9')
+	while (*nbr >= '0' && *nbr <= '9')
 	{
-		res = res * 10 + (*nptr - '0');
-		nptr++;
+		res = res * 10 + (*nbr - '0');
+		nbr++;
 	}
-	return (res * sinal);
+	return (res * sgn);
 }
