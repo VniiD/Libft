@@ -90,9 +90,6 @@ A biblioteca é compilada com as flags estritas do GCC: `-Wall -Wextra -Werror`.
 # Compilar a parte obrigatória → gera libft.a
 make
 
-# Compilar e injetar as rotinas de lista encadeada em libft.a
-make bonus
-
 # Remover arquivos objeto intermediários (.o)
 make clean
 
